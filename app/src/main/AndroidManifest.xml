@@ -3,6 +3,7 @@
     package="br.com.viavarejo.desafio">
 
     <application
+        android:name=".CustomApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,7 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Desafioandroidalexnaldo">
         <activity
-            android:name=".MainActivity"
+            android:name=".views.personagem.listagem.ListagemActivity"
+            android:label="@string/activity_listagem_title"
+            android:exported="true"
+            android:parentActivityName=".views.main.MainActivity">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".views.main.MainActivity" />
+        </activity>
+        <activity
+            android:name=".views.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

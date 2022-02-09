@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">desafio-android-alexnaldo</string>
+    <string name="app_name">Desafio Android</string>
     <string name="play">PLAY</string>
-    <string name="author">by Alexnaldo Santos</string>
+    <string name="author">Alexnaldo Santos</string>
     <string name="welcome">Welcome to Desafio Android!</string>
+    <string name="activity_listagem_title">Listagem de Personagens</string>
 </resources>
