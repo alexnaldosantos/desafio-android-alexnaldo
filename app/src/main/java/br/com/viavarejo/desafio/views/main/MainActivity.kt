@@ -9,7 +9,7 @@ import org.koin.android.ext.android.inject
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private val presenter by inject<MainActivityPresenter>()
+    private val presenter: MainActivityPresenter by inject<MainActivityPresenter>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -17,6 +17,5 @@ class MainActivity : AppCompatActivity() {
 
     fun play(view: View){
         presenter.play(this)
-        findViewById<TextView>(R.id.author).text = Date().toString()
     }
 }

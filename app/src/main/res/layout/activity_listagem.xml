@@ -7,10 +7,10 @@
     tools:context=".views.personagem.listagem.ListagemActivity">
 
     <TextView
-        android:id="@+id/listagemText"
+        android:id="@+id/loadingListagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tela de Listagem"
+        android:text="Tela de Characters"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
