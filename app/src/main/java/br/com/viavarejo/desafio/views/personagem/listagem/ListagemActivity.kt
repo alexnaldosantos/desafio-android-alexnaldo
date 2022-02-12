@@ -2,9 +2,13 @@ package br.com.viavarejo.desafio.views.personagem.listagem
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import br.com.viavarejo.desafio.R
 import br.com.viavarejo.desafio.api.Resource
+import br.com.viavarejo.desafio.models.Character
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListagemActivity : AppCompatActivity() {
@@ -15,15 +19,27 @@ class ListagemActivity : AppCompatActivity() {
         load()
     }
 
+    private fun setupRecyclerView(characters: List<Character>) {
+        val rv = findViewById<RecyclerView>(R.id.rv_characters)
+        rv.adapter = ListagemAdapter(characters)
+        progressBarState(View.GONE, "${characters.size.toString()} personagens")
+    }
+
     private fun load() {
-        val text = findViewById<TextView>(R.id.loadingListagem)
         viewModel.characters.observe(this){
             when(it){
-                is Resource.Success -> text.text = "total de ${it.value.count().toString()}"
-                is Resource.Failure -> text.text = "falha ${it.throwable.message}"
-                is Resource.Requesting -> text.text = getString(R.string.loading)
+                is Resource.Success -> setupRecyclerView(it.value)
+                is Resource.Failure -> progressBarState(View.GONE,"${it.throwable.message}")
+                is Resource.Requesting -> progressBarState(View.VISIBLE, getString(R.string.loading))
             }
         }
         viewModel.getCharacters(0)
+    }
+
+    private fun progressBarState(visibility: Int, message: String = "") {
+        val text = findViewById<TextView>(R.id.txt_listagem)
+        text.text = message
+        val pb = findViewById<ProgressBar>(R.id.pb_characters)
+        pb.visibility = visibility
     }
 }

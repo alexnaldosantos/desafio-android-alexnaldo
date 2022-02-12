@@ -21,7 +21,7 @@ open class MarvelRepositoryImpl (private val api: MarvelApi) : MarvelRepository 
     override suspend fun getCharacters(page: Int): Resource<List<Character>> {
         val call = SafeApi.safeCall {
             api.getCharacters(
-                "-modified",
+                "name",
                 timestamp.toString(),
                 MARVEL_API_KEY,
                 hash(),

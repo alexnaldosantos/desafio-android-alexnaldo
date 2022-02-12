@@ -1,10 +1,18 @@
 package br.com.viavarejo.desafio.utils
 
 import br.com.viavarejo.desafio.api.MarvelApi
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import okhttp3.OkHttpClient
+import okhttp3.OkHttpClient.Builder
 import okhttp3.logging.HttpLoggingInterceptor
+import java.util.concurrent.TimeUnit
+import com.google.gson.GsonBuilder
+
+import com.google.gson.Gson
+
+
+
 
 
 object NetworkUtils {
@@ -19,11 +27,18 @@ object NetworkUtils {
         return retrofit.create(MarvelApi::class.java)
     }
 
+    fun createInterceptor(): HttpLoggingInterceptor {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        return interceptor
+    }
+
     fun okHttpClientLog() : OkHttpClient {
-        val logging = HttpLoggingInterceptor()
-        logging.level = HttpLoggingInterceptor.Level.BODY
-        val httpClient = OkHttpClient.Builder()
-        httpClient.addInterceptor(logging)
-        return httpClient.build()
+        val client = Builder()
+        client.addInterceptor(createInterceptor())
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .writeTimeout(10, TimeUnit.SECONDS)
+            .readTimeout(10, TimeUnit.SECONDS)
+        return client.build()
     }
 }
