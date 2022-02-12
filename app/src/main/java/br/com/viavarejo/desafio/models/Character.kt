@@ -18,5 +18,4 @@ data class Character(val id: Int, val name: String,
     override fun getType(): Int {
         return SearchObjectItem.TYPE_CHARACTER
     }
-
 }
