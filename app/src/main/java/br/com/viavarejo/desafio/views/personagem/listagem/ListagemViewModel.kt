@@ -15,8 +15,8 @@ open class ListagemViewModel(private val repository: MarvelRepository) : ViewMod
     val characters: LiveData<Resource<List<Character>>>
         get() = _characters
 
-    fun getCharacters(page: Int) = viewModelScope.launch {
+    fun getCharacters() = viewModelScope.launch {
         _characters.value = Resource.Requesting
-        _characters.value = repository.getCharacters(page)
+        _characters.value = repository.getCharacters()
     }
 }

@@ -5,5 +5,5 @@ import br.com.viavarejo.desafio.api.Resource
 import br.com.viavarejo.desafio.models.Character
 
 open interface MarvelRepository {
-    suspend fun getCharacters(page: Int): Resource<List<Character>>
+    suspend fun getCharacters(): Resource<List<Character>>
 }

@@ -11,10 +11,6 @@ import com.google.gson.GsonBuilder
 
 import com.google.gson.Gson
 
-
-
-
-
 object NetworkUtils {
     fun createApiService() : MarvelApi {
 

@@ -12,8 +12,10 @@ import br.com.viavarejo.desafio.models.Character
 import com.squareup.picasso.Picasso
 
 
-class ListagemAdapter(private val dataSet: List<Character>) :
+class ListagemAdapter:
     RecyclerView.Adapter<ListagemAdapter.ViewHolder>() {
+
+    private var dataSet = listOf<Character>()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.name)
@@ -33,4 +35,9 @@ class ListagemAdapter(private val dataSet: List<Character>) :
     }
 
     override fun getItemCount() = dataSet.size
+
+    fun update(characters: List<Character>) {
+        dataSet = characters
+        notifyItemInserted(dataSet.size)
+    }
 }

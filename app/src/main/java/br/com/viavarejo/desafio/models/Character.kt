@@ -13,8 +13,7 @@ data class Character(val id: Int, val name: String,
                      val series: CollectionItem,
                      val stories: CollectionItem,
                      val events: CollectionItem,
-                     val urls: MutableList<ItemUrl>,
-                     var page : Int) : Parcelable, SearchObjectItem()  {
+                     val urls: MutableList<ItemUrl>) : Parcelable, SearchObjectItem()  {
     override fun getType(): Int {
         return SearchObjectItem.TYPE_CHARACTER
     }

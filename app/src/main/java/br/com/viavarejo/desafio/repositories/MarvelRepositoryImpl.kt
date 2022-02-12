@@ -18,7 +18,7 @@ open class MarvelRepositoryImpl (private val api: MarvelApi) : MarvelRepository 
 
     private fun hash() = Utils.md5(timestamp.toString() + MARVEL_PRIVATE_KEY + MARVEL_API_KEY)
 
-    override suspend fun getCharacters(page: Int): Resource<List<Character>> {
+    override suspend fun getCharacters(): Resource<List<Character>> {
         val call = SafeApi.safeCall {
             api.getCharacters(
                 "name",
@@ -30,19 +30,16 @@ open class MarvelRepositoryImpl (private val api: MarvelApi) : MarvelRepository 
             )
         }
         return when (call) {
-            is Resource.Success -> Resource.Success(getCharacters(call.value.data, page))
+            is Resource.Success -> Resource.Success(cacheCharacters(call.value.data))
             is Resource.Failure -> call
             is Resource.Requesting -> call
         }
     }
 
-    private fun getCharacters(data: CharacterDataResponse, page: Int) : List<Character> {
-        var newCharacters = mutableListOf<Character>()
+    private val cache = mutableListOf<Character>()
+    private fun cacheCharacters(data: CharacterDataResponse) : List<Character> {
         offset += data.results.count()
-        data.results.forEach { character ->
-            character.page = page
-            newCharacters.add(character)
-        }
-        return newCharacters
+        cache.addAll(data.results)
+        return cache
     }
 }
