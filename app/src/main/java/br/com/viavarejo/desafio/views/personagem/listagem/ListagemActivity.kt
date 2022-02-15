@@ -13,7 +13,7 @@ import br.com.viavarejo.desafio.models.Character
 import br.com.viavarejo.desafio.utils.Utils
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ListagemActivity : AppCompatActivity() {
+class ListagemActivity : AppCompatActivity(), ListagemAdapter.ViewHolder.Delegate {
     private val viewModel: ListagemViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +39,7 @@ class ListagemActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         val rv = findViewById<RecyclerView>(R.id.rv_characters)
-        rv.adapter = ListagemAdapter()
+        rv.adapter = ListagemAdapter(this)
         rv.addOnScrollListener(
             Utils.InfiniteScrollListener(rv.layoutManager as LinearLayoutManager) {
                 getCharacters()
@@ -61,5 +61,9 @@ class ListagemActivity : AppCompatActivity() {
         text.text = message
         val pb = findViewById<ProgressBar>(R.id.pb_characters)
         pb.visibility = visibility
+    }
+
+    override fun onItemClick(character: Character, view: View) {
+        viewModel.showDetail(this, character)
     }
 }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.viavarejo.desafio">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".CustomApp"
         android:allowBackup="true"
@@ -11,13 +13,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Desafioandroidalexnaldo">
         <activity
-            android:name=".views.personagem.listagem.ListagemActivity"
-            android:label="@string/activity_listagem_title"
+            android:name=".views.personagem.hq.HQActivity"
             android:exported="true"
+            android:label="@string/activity_hq"
+            android:parentActivityName=".views.personagem.detalhe.DetalheActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.personagem.detalhe.DetalheActivity" />
+        </activity>
+        <activity
+            android:name=".views.personagem.detalhe.DetalheActivity"
+            android:exported="true"
+            android:label="@string/activity_listagem_detail_title"
+            android:parentActivityName=".views.personagem.listagem.ListagemActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.personagem.listagem.ListagemActivity" />
+        </activity>
+        <activity
+            android:name=".views.personagem.listagem.ListagemActivity"
+            android:exported="true"
+            android:label="@string/activity_listagem_title"
             android:parentActivityName=".views.main.MainActivity">
             <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".views.main.MainActivity" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.main.MainActivity" />
         </activity>
         <activity
             android:name=".views.main.MainActivity"
