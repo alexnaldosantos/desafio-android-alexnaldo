@@ -2,10 +2,7 @@
 
 
 
-Cadastre-se de forma gratuita no site: "https://developer.marvel.com/" para ter uma chave pública e privada.
-
-PublicKey: 8105ca2fc25bd49562b17cb07b576415
-PrivateKey: b9e9cfcc343f1d38066f795f10bf2a313dab7452
+Cadastre-se de forma gratuita no site: "https://developer.marvel.com/" para ter uma chave pública e privada e informe no arquivo `keys.properties``` 
 
 Atenção na autenticação para consumo das APIs: "https://developer.marvel.com/documentation/authorization".
 

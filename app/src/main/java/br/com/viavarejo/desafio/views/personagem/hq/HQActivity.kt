@@ -60,8 +60,7 @@ class HQActivity : AppCompatActivity() {
     }
 
     private fun render(detail: Detail) {
-        val character = viewModel.character
-        text.text = character!!.name
+        text.text = detail.title
         description.text = detail.description
         price.text = detail.moreExpensive?.price.toString()
         Picasso.get().load(detail.thumbnail?.imageUrl).into(image)

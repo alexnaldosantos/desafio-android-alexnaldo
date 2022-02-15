@@ -16,6 +16,7 @@
             android:name=".views.personagem.hq.HQActivity"
             android:exported="true"
             android:label="@string/activity_hq"
+            android:launchMode="singleTop"
             android:parentActivityName=".views.personagem.detalhe.DetalheActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -24,6 +25,7 @@
         <activity
             android:name=".views.personagem.detalhe.DetalheActivity"
             android:exported="true"
+            android:launchMode="singleTop"
             android:label="@string/activity_listagem_detail_title"
             android:parentActivityName=".views.personagem.listagem.ListagemActivity">
             <meta-data
@@ -33,6 +35,7 @@
         <activity
             android:name=".views.personagem.listagem.ListagemActivity"
             android:exported="true"
+            android:launchMode="singleTop"
             android:label="@string/activity_listagem_title"
             android:parentActivityName=".views.main.MainActivity">
             <meta-data
