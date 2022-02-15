@@ -1,5 +1,6 @@
 package br.com.viavarejo.desafio.repositories
 
+import br.com.viavarejo.desafio.BuildConfig
 import br.com.viavarejo.desafio.api.MarvelApi
 import br.com.viavarejo.desafio.api.Resource
 import br.com.viavarejo.desafio.api.SafeApi
