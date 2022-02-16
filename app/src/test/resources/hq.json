@@ -1,0 +1,181 @@
+{
+  "code": 200,
+  "status": "Ok",
+  "copyright": "© 2022 MARVEL",
+  "attributionText": "Data provided by Marvel. © 2022 MARVEL",
+  "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2022 MARVEL</a>",
+  "etag": "d4346388474afb99b30b79b983233a1edc12051c",
+  "data": {
+    "offset": 3,
+    "limit": 1,
+    "total": 52,
+    "count": 1,
+    "results": [
+      {
+        "id": 65466,
+        "digitalId": 0,
+        "title": "Captain America by Mark Waid, Ron Garney & Andy Kubert (Hardcover)",
+        "issueNumber": 0,
+        "variantDescription": "",
+        "description": "One of the most celebrated runs in Captain America history - collected in full! The world believes Cap dead, but his life is saved by his greatest love - and his deadliest enemy! Will America celebrate his return, or will he become a man without a country? After facing Onslaught, Cap will find himself reborn once more - only to lose his shield! But there's no slowing down for the Sentinel of Liberty as Cap takes on Hydra, Skrulls, A.I.M. and more; unites with Iron Man against M.O.D.O.K.; and battles Korvac and the Red Skull for the fate of the future! Plus: Tales from World War II and more - from all eras of the Sentinel of Liberty's star-studded history! Collecting CAPTAIN AMERICA (1968) #444-454, CAPTAIN AMERICA (1998) #1-23, IRON MAN/CAPTAIN AMERICA ANNUAL '98, CAPTAIN AMERICA: SENTINEL OF LIBERTY #1-12 and ROUGH CUT, and material from CAPTAIN AMERICA: THE LEGEND and CAPTAIN AMERICA: RED, WHITE & BLUE.",
+        "modified": "2017-12-01T15:00:12-0500",
+        "isbn": "978-1-302-90831-7",
+        "upc": "",
+        "diamondCode": "JUN171040",
+        "ean": "9781302 908317 59999",
+        "issn": "",
+        "format": "Hardcover",
+        "pageCount": 1328,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "One of the most celebrated runs in Captain America history - collected in full! The world believes Cap dead, but his life is saved by his greatest love - and his deadliest enemy! Will America celebrate his return, or will he become a man without a country? After facing Onslaught, Cap will find himself reborn once more - only to lose his shield! But there's no slowing down for the Sentinel of Liberty as Cap takes on Hydra, Skrulls, A.I.M. and more; unites with Iron Man against M.O.D.O.K.; and battles Korvac and the Red Skull for the fate of the future! Plus: Tales from World War II and more - from all eras of the Sentinel of Liberty's star-studded history! Collecting CAPTAIN AMERICA (1968) #444-454, CAPTAIN AMERICA (1998) #1-23, IRON MAN/CAPTAIN AMERICA ANNUAL '98, CAPTAIN AMERICA: SENTINEL OF LIBERTY #1-12 and ROUGH CUT, and material from CAPTAIN AMERICA: THE LEGEND and CAPTAIN AMERICA: RED, WHITE & BLUE."
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/65466",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/collection/65466/captain_america_by_mark_waid_ron_garney_andy_kubert_hardcover?utm_campaign=apiRef&utm_source=8105ca2fc25bd49562b17cb07b576415"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/23810",
+          "name": "Captain America by Mark Waid, Ron Garney & Andy Kubert (2017)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2017-12-06T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2017-08-07T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 125
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/8/50/5a21c1a2471bf",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/8/50/5a21c1a2471bf",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 5,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/65466/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/10581",
+              "name": "Vero Gandini",
+              "role": "colorist (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/120",
+              "name": "Ron Garney",
+              "role": "penciller (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/175",
+              "name": "Andy Kubert",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/119",
+              "name": "Mark Waid",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/4430",
+              "name": "Jeff Youngquist",
+              "role": "editor"
+            }
+          ],
+          "returned": 5
+        },
+        "characters": {
+          "available": 10,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/65466/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009144",
+              "name": "A.I.M."
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009220",
+              "name": "Captain America"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009359",
+              "name": "Hydra"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009368",
+              "name": "Iron Man"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011312",
+              "name": "Korvac"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010726",
+              "name": "M.O.D.O.K."
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009483",
+              "name": "Onslaught"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009535",
+              "name": "Red Skull"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009228",
+              "name": "Sharon Carter"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009599",
+              "name": "Skrulls"
+            }
+          ],
+          "returned": 10
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/65466/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/142052",
+              "name": "cover from CAPTAIN AMERICA BY MARK WAID, RON GARNEY & ANDY KUBERT OMNIBUS HC (2017) #1",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/142053",
+              "name": "story from CAPTAIN AMERICA BY MARK WAID, RON GARNEY & ANDY KUBERT OMNIBUS HC (2017) #1",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/65466/events",
+          "items": [],
+          "returned": 0
+        }
+      }
+    ]
+  }
+}

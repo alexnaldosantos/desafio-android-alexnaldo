@@ -12,7 +12,7 @@ import retrofit2.http.Query
 interface MarvelApi {
     @GET("/v1/public/characters")
     suspend fun getCharacters(
-        @SuppressWarnings("SameParameterValue") @Nullable @Query("orderBy") modified: String,
+        @SuppressWarnings("SameParameterValue") @Nullable @Query("orderBy") orderBy: String,
         @Query("ts") ts: String,
         @Query("apikey") apiKey: String,
         @Query("hash") hash: String,

@@ -10,6 +10,7 @@ import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import br.com.viavarejo.desafio.views.main.MainActivity
 import br.com.viavarejo.desafio.views.main.MainActivityPresenter
+import br.com.viavarejo.desafio.views.personagem.listagem.ListagemActivity
 import io.mockk.every
 import io.mockk.verify
 import org.junit.Rule
@@ -20,26 +21,20 @@ import org.koin.core.component.inject
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class MainActivityTest: DesafioKoinBaseTest() {
+class ListagemActivityTest: DesafioKoinBaseTest() {
 
     @get:Rule
-    var activityRule: ActivityTestRule<MainActivity>
-            = ActivityTestRule(MainActivity::class.java)
+    var activityRule: ActivityTestRule<ListagemActivity>
+            = ActivityTestRule(ListagemActivity::class.java)
 
     private val presenter by inject<MainActivityPresenter>()
 
     @Test
     fun test_texts_on_screen() {
-        onView(withText("Alexnaldo Santos")).check(matches(isDisplayed()))
-        onView(withText("Welcome to Desafio Android!")).check(matches(isDisplayed()))
     }
 
     @Test
     fun test_play_button() {
-        every { presenter.play(activityRule.activity) } returns Unit
-        onView(withText("PLAY")).perform(click())
-        verify(atLeast = 1, atMost = 1) {
-            presenter.play(activityRule.activity)
-        }
+
     }
 }
