@@ -22,7 +22,7 @@ open class MarvelRepositoryHQImpl(api: MarvelApi) : MarvelRepositoryHQ,
         return when (call) {
             is Resource.Success -> Resource.Success(getMoreExpensiveHQ(call.value.data))
             is Resource.Failure -> call
-            is Resource.Requesting -> call
+            else -> Resource.Requesting
         }
     }
 

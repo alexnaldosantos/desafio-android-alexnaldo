@@ -17,7 +17,7 @@ interface MarvelApi {
         @Query("apikey") apiKey: String,
         @Query("hash") hash: String,
         @Nullable @Query("offset") offset: Int,
-        @Query("limit") limit: Int = 20
+        @Query("limit") limit: Int
     ): CharacterResponse
 
     @GET("/v1/public/characters/{characterId}/comics")

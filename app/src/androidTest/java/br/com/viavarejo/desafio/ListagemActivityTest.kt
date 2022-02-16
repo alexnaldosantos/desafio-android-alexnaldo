@@ -1,40 +1,70 @@
 package br.com.viavarejo.desafio
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
-import br.com.viavarejo.desafio.views.main.MainActivity
+import br.com.viavarejo.desafio.api.MarvelApi
+import br.com.viavarejo.desafio.repositories.MarvelRepositoryCharacter
+import br.com.viavarejo.desafio.repositories.MarvelRepositoryCharacterImpl
+import br.com.viavarejo.desafio.repositories.MarvelRepositoryHQ
+import br.com.viavarejo.desafio.repositories.MarvelRepositoryHQImpl
+import br.com.viavarejo.desafio.services.RouterActivityService
+import br.com.viavarejo.desafio.services.RouterActivityServiceImpl
+import br.com.viavarejo.desafio.utils.NetworkUtils
 import br.com.viavarejo.desafio.views.main.MainActivityPresenter
 import br.com.viavarejo.desafio.views.personagem.listagem.ListagemActivity
-import io.mockk.every
-import io.mockk.verify
+import br.com.viavarejo.desafio.views.personagem.listagem.ListagemViewModel
+import io.mockk.coEvery
+import io.mockk.mockk
+import io.mockk.slot
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.component.inject
-
+import org.koin.core.module.Module
+import org.koin.dsl.module
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class ListagemActivityTest: DesafioKoinBaseTest() {
+class ListagemActivityTest: KoinBaseTest() {
 
     @get:Rule
     var activityRule: ActivityTestRule<ListagemActivity>
             = ActivityTestRule(ListagemActivity::class.java)
 
-    private val presenter by inject<MainActivityPresenter>()
+    private val api by inject<MarvelApi>()
 
     @Test
-    fun test_texts_on_screen() {
+    fun givenRecyclerView_whenStart_thenShow() {
+        // given
+        val orderBy = slot<String>()
+        val ts = slot<String>()
+        val apiKey = slot<String>()
+        val hash = slot<String>()
+        val offset = slot<Int>()
+        val limit = slot<Int>()
+
+        coEvery {
+            api.getCharacters(
+                capture(orderBy),
+                capture(ts),
+                capture(apiKey),
+                capture(hash),
+                capture(offset),
+                capture(limit)
+            )
+        } returns DummyData.characterDummy()
+
+        // when
+
+        //then
     }
 
-    @Test
-    fun test_play_button() {
-
+    override fun getKoinModules(): Module = module(override = true) {
+        single<RouterActivityService> { mockk<RouterActivityServiceImpl>(relaxed = true) }
+        single { mockk<MarvelApi>(relaxed = true) }
+        single<MarvelRepositoryCharacter> { MarvelRepositoryCharacterImpl(get()) }
+        viewModel { ListagemViewModel(get(), get()) }
     }
 }

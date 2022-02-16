@@ -8,7 +8,7 @@ data class Detail(
     val id: Int,
     val title: String?,
     val description: String?,
-    val prices: MutableList<Price>?,
+    val prices: List<Price>?,
     val thumbnail: Thumbnail?,
     var moreExpensive: Price?
 ) : Parcelable {

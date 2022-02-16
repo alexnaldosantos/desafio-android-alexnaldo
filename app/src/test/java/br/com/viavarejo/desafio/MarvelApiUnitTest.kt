@@ -14,28 +14,29 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.FileNotFoundException
 import java.net.URL
 
+
 class MarvelApiUnitTest : MarvelApiUnitBaseTest() {
 
     @Test
     fun `should hit endpoints with expected parameters for getCharacters`() = runBlocking {
-        // arrange
+        // given
         val body = super.readFile("characters.json")
         super.server.enqueue(MockResponse().setBody(body))
-        // act
+        // when
         super.api.getCharacters("name","ts","apiKey","hash",0,1)
         val request = super.server.takeRequest()
-        // assert
+        // then
         assertEquals(request.path,"/v1/public/characters?orderBy=name&ts=ts&apikey=apiKey&hash=hash&offset=0&limit=1")
     }
 
     @Test
     fun `should getCharacters returns expected minimal data`() = runBlocking {
-        // arrange
+        // given
         val body = super.readFile("characters.json")
         super.server.enqueue(MockResponse().setBody(body))
-        // act
+        // when
         val result = super.api.getCharacters("name","ts","apiKey","hash",0,1)
-        // assert
+        // then
         assertEquals(result.code, 200)
         assertEquals(result.status, "Ok")
         assertNotNull(result.data)
@@ -56,13 +57,13 @@ class MarvelApiUnitTest : MarvelApiUnitBaseTest() {
 
     @Test
     fun `should hit endpoints with expected parameters for getComicsByCharacterId`() = runBlocking {
-        // arrange
+        // given
         val body = super.readFile("characters.json")
         super.server.enqueue(MockResponse().setBody(body))
-        // act
+        // when
         super.api.getComicsByCharacterId("1234", "ts", "apiKey", "hash")
         val request = super.server.takeRequest()
-        // assert
+        // then
         assertEquals(
             request.path,
             "/v1/public/characters/1234/comics?ts=ts&apikey=apiKey&hash=hash"
@@ -71,12 +72,12 @@ class MarvelApiUnitTest : MarvelApiUnitBaseTest() {
 
     @Test
     fun `should getComicsByCharacterId returns expected minimal data`() = runBlocking {
-        // arrange
+        // given
         val body = super.readFile("hq.json")
         super.server.enqueue(MockResponse().setBody(body))
-        // act
+        // when
         val result = super.api.getComicsByCharacterId("1009144", "ts", "apiKey", "hash")
-        // assert
+        // then
         assertEquals(result.code, 200)
         assertEquals(result.status, "Ok")
         assertNotNull(result.data)

@@ -27,7 +27,7 @@ open class MarvelRepositoryCharacterImpl(api: MarvelApi) : MarvelRepositoryChara
         return when (call) {
             is Resource.Success -> Resource.Success(cacheCharacters(call.value.data))
             is Resource.Failure -> call
-            is Resource.Requesting -> call
+            else -> Resource.Requesting
         }
     }
 

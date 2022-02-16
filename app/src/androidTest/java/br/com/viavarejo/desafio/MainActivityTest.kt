@@ -8,19 +8,28 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
+import br.com.viavarejo.desafio.services.RouterActivityService
+import br.com.viavarejo.desafio.services.RouterActivityServiceImpl
 import br.com.viavarejo.desafio.views.main.MainActivity
 import br.com.viavarejo.desafio.views.main.MainActivityPresenter
 import io.mockk.every
+import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.core.component.inject
-
+import org.koin.core.module.Module
+import org.koin.dsl.module
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class MainActivityTest: DesafioKoinBaseTest() {
+class MainActivityTest: KoinBaseTest() {
+
+    override fun getKoinModules(): Module = module(override = true) {
+        single<RouterActivityService> { mockk<RouterActivityServiceImpl>(relaxed = true) }
+        single { mockk<MainActivityPresenter>(relaxed = true) }
+    }
 
     @get:Rule
     var activityRule: ActivityTestRule<MainActivity>
@@ -29,13 +38,13 @@ class MainActivityTest: DesafioKoinBaseTest() {
     private val presenter by inject<MainActivityPresenter>()
 
     @Test
-    fun test_texts_on_screen() {
+    fun givenElements_whenLoad_thenShow() {
         onView(withText("Alexnaldo Santos")).check(matches(isDisplayed()))
         onView(withText("Welcome to Desafio Android!")).check(matches(isDisplayed()))
     }
 
     @Test
-    fun test_play_button() {
+    fun givenPlayButton_whenHitButton_thenGoto() {
         every { presenter.play(activityRule.activity) } returns Unit
         onView(withText("PLAY")).perform(click())
         verify(atLeast = 1, atMost = 1) {
