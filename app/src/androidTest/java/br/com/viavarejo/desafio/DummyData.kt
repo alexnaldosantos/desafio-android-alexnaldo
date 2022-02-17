@@ -11,28 +11,32 @@ import br.com.viavarejo.desafio.models.Thumbnail
 
 object DummyData {
 
-    fun characterDummy() = CharacterResponse(
+    fun characterDummy() = Character(
+        1, "name", "description", Thumbnail("path", "jpg")
+    )
+
+    fun characterResponseDummy() = CharacterResponse(
         1, "200",
         CharacterDataResponse(
             0, 0, 0, 0, listOf(
-                Character(
-                    1, "name", "description", Thumbnail("path", "jpg")
-                )
+                characterDummy()
             )
         )
     )
 
-    fun HQDummy() = DetailResponse(
+    fun detailDummy() = Detail(
+        1,
+        "title",
+        "description",
+        listOf(Price("type", 0.0)),
+        Thumbnail("path", "jpg"),
+        Price("type", 0.00)
+    )
+
+    fun HQResponseDummy() = DetailResponse(
         0, "200", CharacterDetailData(
             0, 0, 0, 0, listOf(
-                Detail(
-                    1,
-                    "title",
-                    "description",
-                    listOf(Price("type", 0.0)),
-                    Thumbnail("path", "jpg"),
-                    null
-                )
+                detailDummy()
             )
         )
     )

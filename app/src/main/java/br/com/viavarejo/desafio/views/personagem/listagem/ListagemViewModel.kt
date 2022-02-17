@@ -25,8 +25,4 @@ open class ListagemViewModel(private val repository: MarvelRepositoryCharacter, 
     fun showDetail(context: Context, character: Character) {
         router.gotoListagemDetail(context, character)
     }
-
-    fun showHQ(context: Context) {
-        //router.gotoHQ(context, character)
-    }
 }

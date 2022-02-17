@@ -12,7 +12,9 @@ import br.com.viavarejo.desafio.services.RouterActivityService
 import br.com.viavarejo.desafio.services.RouterActivityServiceImpl
 import br.com.viavarejo.desafio.views.main.MainActivity
 import br.com.viavarejo.desafio.views.main.MainActivityPresenter
+import io.mockk.Runs
 import io.mockk.every
+import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Rule
@@ -45,7 +47,7 @@ class MainActivityTest: KoinBaseTest() {
 
     @Test
     fun givenPlayButton_whenHitButton_thenGoto() {
-        every { presenter.play(activityRule.activity) } returns Unit
+        every { presenter.play(activityRule.activity) } just Runs
         onView(withText("PLAY")).perform(click())
         verify(atLeast = 1, atMost = 1) {
             presenter.play(activityRule.activity)

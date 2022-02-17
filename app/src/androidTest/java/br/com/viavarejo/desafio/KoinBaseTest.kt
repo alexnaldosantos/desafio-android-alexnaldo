@@ -1,5 +1,6 @@
 package br.com.viavarejo.desafio
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
@@ -25,6 +26,9 @@ abstract class KoinBaseTest : KoinTest {
     val mockProvider = MockProviderRule.create { clazz ->
         Mockito.mock(clazz.java)
     }
+
+    @get:Rule
+    val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Before
     fun setup() {
